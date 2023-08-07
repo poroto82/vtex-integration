@@ -1,0 +1,23 @@
+{
+    "name": "poroto82/vtex-integration",
+    "type": "library",
+    "authors": [
+        {
+            "name": "poroto82",
+            "email": "egadea@aper.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "VtexIntegration\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "VtexIntegration\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^9.6"
+    }
+}
