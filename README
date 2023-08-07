@@ -1,1 +1,72 @@
-#VtexIntegration
+# VTEX Integration Library
+
+This is a PHP library for interacting with the VTEX API. It provides a set of methods to facilitate communication with the VTEX platform, including retrieving product information, checking stock and prices, sending orders, authorizing orders, searching orders, and canceling orders.
+
+## Installation
+
+To install this library, you can use Composer:
+
+```bash
+composer require your-username/vtex-integration
+```
+
+Replace `your-username` with your GitHub username or organization.
+
+## Usage
+
+```php
+require 'vendor/autoload.php';
+
+use VtexIntegration\VtexRepository;
+
+// Initialize the VTEX repository
+$repo = new VtexRepository(
+    'https://yourstore.vtexcommercestable.com.br',
+    ['appkey' => 'your-app-key', 'apptoken' => 'your-app-token'],
+    'your-seller-id',
+    'your-affiliate-id',
+    'your-sales-channel'
+);
+
+// Retrieve a list of products
+$products = $repo->getProducts();
+
+// Search for products
+$searchResults = $repo->searchProducts();
+
+// Get price and stock information for SKUs
+$skuIds = ['sku-id-1', 'sku-id-2'];
+$priceAndStock = $repo->getPriceAndStock($skuIds);
+
+// Retrieve information about a product
+$productInfo = $repo->getProduct('product-id');
+
+// Send an order
+$orderData = [...];
+$orderResponse = $repo->sendOrder($orderData);
+
+// Authorize an order
+$orderId = 'order-id';
+$authorizeResponse = $repo->authorizeOrder($orderId);
+
+// Search orders
+$orderFilters = [...];
+$orders = $repo->searchOrders($orderFilters);
+
+// Cancel an order
+$orderIdToCancel = 'order-id';
+$cancelResponse = $repo->cancelOrder($orderIdToCancel);
+```
+
+## Documentation
+
+For more detailed information on each method and its parameters, you can refer to the API documentation (link-to-api-docs).
+
+## Contributing
+
+Contributions are welcome! If you find a bug or want to add a new feature, feel free to open an issue or submit a pull request.
+
+## License
+
+This library is licensed under the MIT License (LICENSE).
+```
